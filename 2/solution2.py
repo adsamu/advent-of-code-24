@@ -1,6 +1,7 @@
 from sys import stdin
 from itertools import pairwise
 
+
 def isSafe(line):
     sign = 0
     for a, b in pairwise(line):
@@ -14,13 +15,14 @@ def isSafe(line):
         sign = diff
     return True
 
+
 lines = [list(map(int, line.strip().split())) for line in stdin]
 
 count = 0
 for line in lines:
     sign = 0
     if isSafe(line):
-        count += 1   
+        count += 1
     else:
         for i in range(len(line)):
             if isSafe(line[:i] + line[i+1:]):
@@ -28,4 +30,3 @@ for line in lines:
                 break
 
 print(count)
-
